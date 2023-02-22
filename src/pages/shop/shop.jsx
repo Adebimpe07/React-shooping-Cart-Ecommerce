@@ -9,8 +9,8 @@ const shop = () => {
         <h1>PedroTech Shop</h1>
       </div>
       <div className="products w-full h-auto grid grid-cols-3 place-items-center">
-        {PRODUCTS.map((product) => {
-          return <Product data={product} />;
+        {PRODUCTS.map((product, id) => {
+          return <Product data={product} key={id} />;
         })}
       </div>
     </div>

@@ -18,16 +18,16 @@ export const ShopContextProvider = (props) => {
         let itemInfo = PRODUCTS.find(
           (products) => products.id === Number(item)
         );
-        totalAmount += cartItems[item] = itemInfo.price;
+        totalAmount += cartItems[item] * itemInfo.price;
       }
-      return totalAmount;
     }
+    return totalAmount;
   };
-  const addTocart = (itemsId) => {
-    setCartItems((prev) => ({ ...prev, [itemsId]: prev[itemsId] + 1 }));
+  const addToCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
-  const removeFromcart = (itemsId) => {
-    setCartItems((prev) => ({ ...prev, [itemsId]: prev[itemsId] - 1 }));
+  const removeFromCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
   const updateCartItemCount = (newAmount, itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
@@ -37,8 +37,8 @@ export const ShopContextProvider = (props) => {
   };
   const contextValue = {
     cartItems,
-    addTocart,
-    removeFromcart,
+    addToCart,
+    removeFromCart,
     updateCartItemCount,
     getTotalCartAmount,
     checkout,
